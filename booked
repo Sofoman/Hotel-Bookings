@@ -1,0 +1,26 @@
+from datetime import datetime
+
+# Collect input from the user
+name = input("What is the tenant's name? ")
+surname = input("What is the tenant's surname? ")
+check_in = input("What is the check-in date (dd-mm-yy)? ")
+check_out = input("What is the check-out date (dd-mm-yy)? ")
+country = input("What is the tenant's country? ")
+
+# Calculate the number of days of the stay
+check_in_date = datetime.strptime(check_in, '%d/%m/%y')
+check_out_date = datetime.strptime(check_out, '%d/%m/%y')
+stay_days = check_out_date - check_in_date
+
+# Calculate the cost of the stay
+cost = 30 * stay_days.days
+
+# Display the information
+print("Tenant's Information:")
+print("Name:", name)
+print("Surname:", surname)
+print("Check-in date:", check_in)
+print("Check-out date:", check_out)
+print("Country:", country)
+print("Stay days:", stay_days.days)
+print("Cost of stay:", cost, "euros")
